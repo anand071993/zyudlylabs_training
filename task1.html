@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+
+    <body >
+        <div id="div1">
+        <h1 style="text-align:center">post</h1>
+        <div id ="div2" style="position: absolute;
+        left: 428px;
+        top: 104px;">
+        <table id ="tab1" border=1>
+            <tr>
+            <th>userID</th>
+            <th>Title</th>
+            <th>body</th>
+            </tr>
+            <tr>
+                <td id="td1"></td>
+                <td id="td2"></td>
+                <td id="td3"></td>
+            </tr>   
+            
+        </table>
+        </div>
+        </div>
+<script>
+   function apicalls(){
+       var response="";
+       var xhttp=new XMLHttpRequest();
+       xhttp.open("GET","https://reqres.in/api/users",false);
+       xhttp.send()
+
+       response=JSON.parse(xhttp.response);                                      
+       
+  document.getElementById('td1').innerHTML= response.data[0].id;
+  document.getElementById('td2').innerHTML= response.data[0].first_name;
+  document.getElementById('td3').innerHTML= response.data[0].last_name;
+       
+       
+   }
+   apicalls()
+
+</script>
+<script
+src="https://code.jquery.com/jquery-3.2.1.js"
+integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+crossorigin="anonymous">
+</script>
+
+
+    </body>
+</html>
